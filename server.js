@@ -22,15 +22,17 @@ app.post('/query', (req, res) => {
     if(req.body.query) {
         console.log(req.body.query);
         client.connect();
-        client.query(req.body.query, (err, res) => {
+        client.query(req.body.query, (err, r) => {
             if (err) throw err;
-            response = JSON.stringify(rows);
+            response = JSON.stringify(r.rows);
             client.end();
         });
     }
 
     res.send(response);
 });
+
+const port = process.env.PORT || 8080;
 
 const port = process.env.PORT || 8080;
 
