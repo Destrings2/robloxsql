@@ -7,6 +7,8 @@ const client = new Client({
     connectionString: process.env.DATABASE_URL
 });
 
+client.connect();
+
 //Create the express app
 const bodyParser = require('body-parser');
 const app = express();
@@ -21,7 +23,6 @@ app.post('/query', (req, res) => {
     let response;
     if(req.body.query) {
         console.log(req.body.query);
-        client.connect();
         client.query(req.body.query, (err, r) => {
             if (err) throw err;
             response = JSON.stringify(r.rows);
