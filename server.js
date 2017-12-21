@@ -7,9 +7,6 @@ const client = new Client({
     connectionString: process.env.DATABASE_URL
 });
 
-//Connect to the server
-client.connect();
-
 //Create the express app
 const bodyParser = require('body-parser');
 const app = express();
@@ -20,12 +17,19 @@ app.use(bodyParser.json());
 //Handle a post request at /query
 app.post('/query', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
-
     console.log("Receiving request");
-    console.log(req.body);
-    res.send(JSON.stringify({
-        result: "Hola"
-    }));
+    let response;
+    if(req.body.query) {
+        console.log(req.body.query);
+        client.connect();
+        client.query(req.body.query, (err, res) => {
+            if (err) throw err;
+            response = JSON.stringify(rows);
+            client.end();
+        });
+    }
+
+    res.send(response);
 });
 
 const port = process.env.PORT || 8080;
