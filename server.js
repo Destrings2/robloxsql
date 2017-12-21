@@ -1,7 +1,6 @@
 //Import requiered packages
 const express = require('express');
 const {Client} = require('pg');
-const bodyParser = require("body-parser");
 
 //Create the conection to the postgres server
 const client = new Client({
@@ -14,17 +13,14 @@ client.connect();
 //Create the express app
 const app = express();
 
-//Parse application/json
-app.use(bodyParser.json());
-
 //Handle a post request at /query
 app.post('/query', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
 
     console.log("Receiving request");
-    console.log(req.body);
+    console.log(req);
     res.send(JSON.stringify({
-        result: req.body.query
+        result: "Hola"
     }));
 });
 
