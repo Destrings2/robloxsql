@@ -23,7 +23,7 @@ app.post('/query', (req, res) => {
     if(req.body.query) {
         console.log(req.body.query);
         client.query(req.body.query, (err, r) => {
-            if (err) throw err;
+            if (err) res.end({"error":"Unexpected error ocurred"});
             rows = [];
             for(let row of r.rows){
                 rows.push(row);
