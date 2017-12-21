@@ -34,8 +34,6 @@ app.post('/query', (req, res) => {
 
 const port = process.env.PORT || 8080;
 
-const port = process.env.PORT || 8080;
-
 //Start listening
 const server = app.listen(port, function () {
    console.log("App listening at ${host}")
