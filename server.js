@@ -22,6 +22,7 @@ app.use(bodyParser.json());
 app.post('/query', (req, res) => {
 
     let query = req.body.query;
+    console.log(query);
 
     //Send the query and return the result as  JSON
     client.query(query, (err, res) => {
