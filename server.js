@@ -11,14 +11,21 @@ const client = new Client({
 client.connect();
 
 //Create the express app
+const bodyParser = require('body-parser');
 const app = express();
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json
+app.use(bodyParser.json());
 
 //Handle a post request at /query
 app.post('/query', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
 
     console.log("Receiving request");
-    console.log(req.body);
+    console.log(res.body);
     res.send(JSON.stringify({
         result: "Hola"
     }));
