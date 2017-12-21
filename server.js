@@ -27,7 +27,7 @@ app.post('/query', (req, res) => {
             if (err) throw err;
             rows = [];
             for(let row of r.rows){
-                rows.append(row);
+                rows.push(row);
             }
             response = JSON.stringify(rows);
         });
