@@ -33,7 +33,7 @@ app.post('/query', (req, res) => {
             console.log(response)
         });
     }
-    res.send(response);
+    res.end(response);
 });
 
 const port = process.env.PORT || 8080;
