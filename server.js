@@ -30,9 +30,9 @@ app.post('/query', (req, res) => {
                 rows.push(row);
             }
             response = JSON.stringify(rows);
+            console.log(response)
         });
     }
-
     res.send(response);
 });
 
