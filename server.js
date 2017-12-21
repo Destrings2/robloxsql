@@ -1,10 +1,9 @@
 //Import requiered packages
 const express = require('express');
-const pg = require('pg');
-const qs = require('querystring');
+const {Client} = require('pg');
 
 //Create the conection to the postgres server
-const client = new pg({
+const client = new Client({
     connectionString: process.env.DATABASE_URL
 });
 
