@@ -25,10 +25,10 @@ app.post('/query', (req, res) => {
     console.log(query);
 
     //Send the query and return the result as  JSON
-    client.query(query, (err, res) => {
+    client.query(query, (err, r) => {
         if (err) console.log("error");
 
-        res.end(JSON.stringify(res.rows));
+        res.end(JSON.stringify(r.rows));
     });
 
 });
