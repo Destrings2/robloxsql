@@ -25,7 +25,6 @@ app.post('/query', (req, res) => {
         client.query(req.body.query, (err, r) => {
             if (err) throw err;
             response = JSON.stringify(r.rows);
-            client.end();
         });
     }
 
