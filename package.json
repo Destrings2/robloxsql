@@ -1,6 +1,6 @@
 {
   "name": "robloxsql",
-  "description": "Roblox SQL server",
+  "description": "Roblox SQL server example",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
