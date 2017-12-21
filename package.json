@@ -2,7 +2,6 @@
   "name": "robloxsql",
   "description": "Roblox SQL server",
   "main": "server.js",
-  "version": "1.0",
   "scripts": {
     "start": "node server.js"
   },
