@@ -1,6 +1,7 @@
 //Import requiered packages
 const express = require('express');
 const {Client} = require('pg');
+const bodyParser = require("body-parser");
 
 //Create the conection to the postgres server
 const client = new Client({
@@ -13,12 +14,8 @@ client.connect();
 //Create the express app
 const app = express();
 
-//Configure parsing of request body
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
-
-//Parse the JSON body
+//Use body-parser as middleware. Parse the body as JSON
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 //Handle a post request at /query

@@ -8,6 +8,6 @@
   "dependencies": {
     "express": "4.x.x",
     "pg": "7.x.x",
-    "querystring": "0.2.0"
+    "body-parser": "1.18.x"
   }
 }
