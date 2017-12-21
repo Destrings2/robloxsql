@@ -18,7 +18,7 @@ app.post('/query', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
 
     console.log("Receiving request");
-    console.log(req);
+    console.log(req.body);
     res.send(JSON.stringify({
         result: "Hola"
     }));
