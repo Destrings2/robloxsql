@@ -14,11 +14,18 @@ client.connect();
 //Create the express app
 const app = express();
 
+//Parse application/json
+app.use(bodyParser.json());
+
 //Handle a post request at /query
 app.post('/query', (req, res) => {
-    console.log("Receiving request")
-    console.log(req.body);
+    res.setHeader('Content-Type', 'application/json');
 
+    console.log("Receiving request");
+    console.log(req.body);
+    res.send(JSON.stringify({
+        result: req.body.query
+    }));
 });
 
 const port = process.env.PORT || 8080;
