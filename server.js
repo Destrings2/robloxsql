@@ -20,7 +20,6 @@ app.use(bodyParser.json());
 app.post('/query', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     console.log("Receiving request");
-    let response;
     if(req.body.query) {
         console.log(req.body.query);
         client.query(req.body.query, (err, r) => {
@@ -30,10 +29,10 @@ app.post('/query', (req, res) => {
                 rows.push(row);
             }
             response = JSON.stringify(rows);
-            console.log(response)
+            console.log(response);
+            res.end(response);
         });
     }
-    res.end(response);
 });
 
 const port = process.env.PORT || 8080;
